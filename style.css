@@ -1,162 +1,141 @@
-/* ======== UNIVERSAL HACKER RAT GLOBAL STYLE ======== */
-
-* {
+/* ===== Universal RAT Dark Web Style ===== */
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
   background: #000;
   color: #00ff00;
-  font-family: 'Courier New', Courier, monospace;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  font-family: monospace;
+  overflow-x: hidden;
+}
+
+/* Background animation */
+.background-animation {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    rgba(0, 255, 0, 0.05) 0px,
+    rgba(0, 255, 0, 0.05) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  animation: glitchBg 3s infinite;
+  z-index: -1;
+}
+
+@keyframes glitchBg {
+  0%, 100% { background-position: 0 0; }
+  50% { background-position: 0 10px; }
+}
+
+.container {
+  max-width: 600px;
+  margin: 80px auto;
   padding: 20px;
-}
-
-/* ======== HEADER ======== */
-h1, h2, h3 {
-  color: #00ff00;
-  text-shadow: 0px 0px 8px #00ff00;
-  margin-bottom: 15px;
   text-align: center;
-}
-
-/* ======== BUTTONS ======== */
-button, .btn {
-  background: #00ff00;
-  color: #000;
-  padding: 12px 25px;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  border-radius: 6px;
-}
-
-button:hover, .btn:hover {
-  background: #fff;
-  color: #000;
-  transform: scale(1.05);
-}
-
-/* ======== INPUT FIELDS ======== */
-input[type="text"], input[type="password"], input[type="number"] {
-  width: 100%;
-  padding: 12px;
+  background: rgba(10, 10, 10, 0.85);
   border: 2px solid #00ff00;
-  background: #000;
+  border-radius: 10px;
+  box-shadow: 0 0 30px #00ff00;
+}
+
+h1.glitch {
+  position: relative;
+  font-size: 2.5rem;
+  color: #00ff00;
+  text-transform: uppercase;
+}
+
+h1.glitch::before,
+h1.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  color: #00ff00;
+  clip: rect(0, 900px, 0, 0);
+}
+
+h1.glitch::before {
+  animation: glitch1 1s infinite linear alternate-reverse;
+  color: #ff0000;
+}
+
+h1.glitch::after {
+  animation: glitch2 1s infinite linear alternate-reverse;
+  color: #0000ff;
+}
+
+@keyframes glitch1 {
+  0% { clip: rect(0, 900px, 0, 0); }
+  20% { clip: rect(0, 900px, 20px, 0); }
+  40% { clip: rect(0, 900px, 40px, 0); }
+  60% { clip: rect(0, 900px, 60px, 0); }
+  80% { clip: rect(0, 900px, 80px, 0); }
+  100% { clip: rect(0, 900px, 100px, 0); }
+}
+
+@keyframes glitch2 {
+  0% { clip: rect(0, 900px, 100px, 0); }
+  20% { clip: rect(0, 900px, 80px, 0); }
+  40% { clip: rect(0, 900px, 60px, 0); }
+  60% { clip: rect(0, 900px, 40px, 0); }
+  80% { clip: rect(0, 900px, 20px, 0); }
+  100% { clip: rect(0, 900px, 0, 0); }
+}
+
+input[type="password"] {
+  width: 80%;
+  padding: 10px;
+  margin: 15px 0;
+  background: black;
+  border: 2px solid #00ff00;
   color: #00ff00;
   font-size: 16px;
-  margin-bottom: 20px;
-  font-family: inherit;
-  outline: none;
-  border-radius: 4px;
 }
 
-input[type="text"]::placeholder, 
-input[type="password"]::placeholder {
-  color: #00ff00a1;
-}
-
-/* ======== TERMINAL SCROLL BAR ======== */
-#terminal {
-  scrollbar-width: thin;
-  scrollbar-color: #00ff00 #000;
-}
-
-#terminal::-webkit-scrollbar {
-  width: 6px;
-}
-
-#terminal::-webkit-scrollbar-track {
-  background: #000;
-}
-
-#terminal::-webkit-scrollbar-thumb {
-  background-color: #00ff00;
-  border-radius: 4px;
-}
-
-/* ======== ERROR MESSAGE ======== */
-#errorMessage {
-  color: red;
-  text-align: center;
+button {
+  background: #00ff00;
+  color: black;
+  padding: 10px 25px;
   font-weight: bold;
-  margin-top: 10px;
-  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-/* ======== SUCCESS MESSAGE ======== */
-.success {
+button:hover {
+  background: black;
   color: #00ff00;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 10px;
+  border: 2px solid #00ff00;
 }
 
-/* ======== FOOTER ======== */
-footer {
-  margin-top: 40px;
-  text-align: center;
-  color: #00ff00a6;
+/* Progress Bar */
+.progress-container {
+  width: 100%;
+  background: #222;
+  height: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: lime;
+  transition: width 0.5s;
+}
+
+/* Terminal */
+.terminal-output {
+  background: black;
+  border: 2px solid #00ff00;
+  padding: 15px;
+  height: 400px;
+  overflow-y: auto;
+  text-align: left;
   font-size: 14px;
-}
-
-/* ======== LOADING ANIMATION ======== */
-@keyframes blink {
-  0%, 50%, 100% {
-    opacity: 1;
-  }
-  25%, 75% {
-    opacity: 0;
-  }
-}
-
-.loading-dot {
-  display: inline-block;
-  animation: blink 1.5s infinite;
-}
-
-.loading-dot:nth-child(2) {
-  animation-delay: 0.3s;
-}
-
-.loading-dot:nth-child(3) {
-  animation-delay: 0.6s;
-}
-
-/* ======== CRASH SCREEN ======== */
-#crashScreen {
-  background: #8B0000;
-  color: #fff;
-  padding: 50px;
-  text-align: center;
-  border: 2px solid #ff0000;
-  font-size: 22px;
-  text-shadow: 0 0 8px #ff0000;
-  margin-top: 40px;
-}
-
-/* ======== HACKER ANIMATION ======== */
-@keyframes terminal-glow {
-  0% {
-    text-shadow: 0 0 5px #00ff00;
-  }
-  50% {
-    text-shadow: 0 0 15px #00ff00;
-  }
-  100% {
-    text-shadow: 0 0 5px #00ff00;
-  }
-}
-
-#terminal p, #terminal span, #terminal div {
-  animation: terminal-glow 2s infinite;
 }

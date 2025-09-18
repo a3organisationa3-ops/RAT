@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share to Unlock</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #00ff00;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #ddd;
+    }
+
+    .share-btn {
+      display: inline-block;
+      background: #25D366;
+      color: #fff;
+      padding: 12px 25px;
+      margin-top: 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 18px;
+      transition: 0.3s ease;
+    }
+
+    .share-btn:hover {
+      background: #1da851;
+    }
+
+    #shareCount {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #ffcc00;
+    }
+
+    #nextStep {
+      display: none;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background: #ffcc00;
+      color: #000;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔥 Hack Anyone's Phone in 1 Click!</h1>
+  <p>To continue, share this tool with <b>5 friends</b> on WhatsApp.</p>
+
+  <a id="whatsappShare" class="share-btn" target="_blank">
+    📤 Share Now
+  </a>
+
+  <div id="shareCount">Shares Completed: 0/5</div>
+
+  <button id="nextStep" onclick="goToTerminal()">Proceed to Next Step</button>
+
+  <script>
+    let shares = 0;
+
+    // WhatsApp share link
+    const shareMessage = encodeURIComponent("🔥 Hack anyone's phone in 1 click! \n\nAccess here now: https://yourgithubpage.github.io/RAT-HACK/");
+    const whatsappLink = `https://api.whatsapp.com/send?text=${shareMessage}`;
+    
+    const shareBtn = document.getElementById('whatsappShare');
+    shareBtn.href = whatsappLink;
+
+    shareBtn.addEventListener('click', () => {
+      shares++;
+      document.getElementById('shareCount').textContent = `Shares Completed: ${shares}/5`;
+      
+      if (shares >= 5) {
+        document.getElementById('nextStep').style.display = 'inline-block';
+      }
+    });
+
+    function goToTerminal() {
+      window.location.href = "terminal.html";
+    }
+  </script>
+
+</body>
+</html>

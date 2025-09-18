@@ -1,0 +1,162 @@
+/* ======== UNIVERSAL HACKER RAT GLOBAL STYLE ======== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  color: #00ff00;
+  font-family: 'Courier New', Courier, monospace;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+/* ======== HEADER ======== */
+h1, h2, h3 {
+  color: #00ff00;
+  text-shadow: 0px 0px 8px #00ff00;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* ======== BUTTONS ======== */
+button, .btn {
+  background: #00ff00;
+  color: #000;
+  padding: 12px 25px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  border-radius: 6px;
+}
+
+button:hover, .btn:hover {
+  background: #fff;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* ======== INPUT FIELDS ======== */
+input[type="text"], input[type="password"], input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #00ff00;
+  background: #000;
+  color: #00ff00;
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-family: inherit;
+  outline: none;
+  border-radius: 4px;
+}
+
+input[type="text"]::placeholder, 
+input[type="password"]::placeholder {
+  color: #00ff00a1;
+}
+
+/* ======== TERMINAL SCROLL BAR ======== */
+#terminal {
+  scrollbar-width: thin;
+  scrollbar-color: #00ff00 #000;
+}
+
+#terminal::-webkit-scrollbar {
+  width: 6px;
+}
+
+#terminal::-webkit-scrollbar-track {
+  background: #000;
+}
+
+#terminal::-webkit-scrollbar-thumb {
+  background-color: #00ff00;
+  border-radius: 4px;
+}
+
+/* ======== ERROR MESSAGE ======== */
+#errorMessage {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* ======== SUCCESS MESSAGE ======== */
+.success {
+  color: #00ff00;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ======== FOOTER ======== */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  color: #00ff00a6;
+  font-size: 14px;
+}
+
+/* ======== LOADING ANIMATION ======== */
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.loading-dot {
+  display: inline-block;
+  animation: blink 1.5s infinite;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.loading-dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* ======== CRASH SCREEN ======== */
+#crashScreen {
+  background: #8B0000;
+  color: #fff;
+  padding: 50px;
+  text-align: center;
+  border: 2px solid #ff0000;
+  font-size: 22px;
+  text-shadow: 0 0 8px #ff0000;
+  margin-top: 40px;
+}
+
+/* ======== HACKER ANIMATION ======== */
+@keyframes terminal-glow {
+  0% {
+    text-shadow: 0 0 5px #00ff00;
+  }
+  50% {
+    text-shadow: 0 0 15px #00ff00;
+  }
+  100% {
+    text-shadow: 0 0 5px #00ff00;
+  }
+}
+
+#terminal p, #terminal span, #terminal div {
+  animation: terminal-glow 2s infinite;
+}

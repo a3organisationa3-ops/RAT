@@ -1,0 +1,13 @@
+<script>
+    function checkKey() {
+        const key = document.getElementById("accessKey").value.trim();
+
+        if (key === "UNIVERSAL_HACKER_RAT_2025") {
+            localStorage.setItem("accessGranted", "true");
+            window.location.href = "share.html";
+        } else {
+            document.getElementById("errorMessage").textContent = "❌ Wrong key! Please try again or buy a valid key.";
+            document.getElementById("errorMessage").style.color = "red";
+        }
+    }
+              </script>

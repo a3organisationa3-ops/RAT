@@ -1,13 +1,24 @@
-<script>
-    function checkKey() {
-        const key = document.getElementById("accessKey").value.trim();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Access Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="index">
+  <div class="background-animation"></div>
+  <div class="container">
+    <h1 class="glitch" data-text="UNIVERSAL RAT">UNIVERSAL RAT</h1>
+    <p class="tagline">Secure Dark Web Access</p>
+    <input type="password" id="accessKey" placeholder="Enter Access Key">
+    <button onclick="checkKey()">Unlock Access</button>
+    <p id="errorMsg" class="error"></p>
 
-        if (key === "UNIVERSAL_HACKER_RAT_2025") {
-            localStorage.setItem("accessGranted", "true");
-            window.location.href = "share.html";
-        } else {
-            document.getElementById("errorMessage").textContent = "❌ Wrong key! Please try again or buy a valid key.";
-            document.getElementById("errorMessage").style.color = "red";
-        }
-    }
-              </script>
+    <div class="buy-section">
+      <p>Don't have a key? <a href="https://wa.me/919836942455?text=I%20want%20RAT%20Access%20Key">Buy now on WhatsApp</a></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

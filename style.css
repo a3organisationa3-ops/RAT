@@ -1,0 +1,76 @@
+/* General Body Styling */
+body {
+  background: #000;
+  color: #0f0;
+  font-family: monospace;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Heading with Neon Effect */
+.neon-text {
+  color: #00ff00;
+  text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+/* Sub Text */
+.sub-text {
+  color: #ccc;
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+/* WhatsApp Button */
+.btn-whatsapp {
+  background: #25D366;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  margin-top: 15px;
+  width: 80%;
+  max-width: 250px;
+}
+
+.btn-whatsapp:hover {
+  background: #1DA851;
+}
+
+/* Locked Continue Button */
+.btn-locked {
+  background: #333;
+  color: #777;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: not-allowed;
+  font-size: 1.1em;
+  margin-top: 20px;
+  width: 80%;
+  max-width: 250px;
+}
+
+/* Active Continue Button */
+.btn-active {
+  background: #ff0000;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-active:hover {
+  background: #cc0000;
+}
+
+/* Box Styling */
+.box {
+  border: 1px solid #0f0;
+  padding: 15px;
+  margin-top: 20px;
+  display: inline-block;
+  width: 80%;
+  max-width: 300px;
+}

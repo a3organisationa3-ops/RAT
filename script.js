@@ -1,41 +1,70 @@
-// ============================
-// Share Page Logic Fix
-// ============================
-let shareCount = parseInt(localStorage.getItem("shareCount")) || 0;
-const shareCountDisplay = document.getElementById("shareCount");
-const continueBtn = document.getElementById("continueBtn");
+// ===== Correct Key =====
+const correctKey = "DARKWEB123"; // Change this to your secret key
+let shareCount = 0;
+const requiredShares = 5;
 
-// On Page Load
-document.addEventListener("DOMContentLoaded", () => {
-  updateShareUI();
-});
+// ===== Verify Key =====
+function verifyKey() {
+  const key = document.getElementById("access-key").value.trim();
+  const errorMsg = document.getElementById("error-message");
 
-// Update UI based on count
-function updateShareUI() {
-  shareCountDisplay.innerText = shareCount;
-  if (shareCount >= 5) {
-    continueBtn.disabled = false;
-    document.getElementById("shareStatus").innerText = "All shares completed ✅";
+  if (key === correctKey) {
+    window.location.href = "share.html";
   } else {
-    continueBtn.disabled = true;
+    errorMsg.textContent = "❌ Invalid Key! Try Again.";
   }
 }
 
-// WhatsApp Auto Share Function
-function shareOnWhatsApp() {
-  shareCount++;
-  localStorage.setItem("shareCount", shareCount);
-  updateShareUI();
-
-  const link = "https://a3organisationa3-ops.github.io/RAT/";
-  const message = `🔥 Dark RAT Tool 🔥\nHack anyone's phone remotely!\nGet it now:\n${link}`;
-
-  // Auto open WhatsApp
-  window.location.href = `https://wa.me/?text=${encodeURIComponent(message)}`;
+// ===== Buy Key =====
+function buyKey() {
+  const phoneNumber = "919836942455"; // Your WhatsApp number
+  const message = encodeURIComponent("Hello, I want to buy a key for Dark Web RAT Tool.");
+  window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
 }
 
-// Go to Terminal
-function goToTerminal() {
-  localStorage.removeItem("shareCount"); // Reset after unlocking
-  window.location.href = "terminal.html";
+// ===== Share on WhatsApp =====
+function shareOnWhatsApp() {
+  const shareText = encodeURIComponent("🔥 Dark Web RAT TOOL 🔥\nGet this tool here: https://a3organisationa3-ops.github.io/RAT/");
+  
+  window.open(`whatsapp://send?text=${shareText}`, "_blank");
+
+  // Update share count
+  shareCount++;
+  document.getElementById("share-count").innerText = `Shares completed: ${shareCount} / ${requiredShares}`;
+
+  if (shareCount >= requiredShares) {
+    document.getElementById("continue-btn").classList.remove("hidden");
+  }
+}
+
+// ===== Go to RAT Panel =====
+function goToPanel() {
+  window.location.href = "panel.html";
+}
+
+// ===== Run Commands in Terminal =====
+function runCommand() {
+  const input = document.getElementById("command-input").value.trim();
+  const outputDiv = document.getElementById("command-output");
+
+  let response = "";
+  switch(input.toLowerCase()) {
+    case "help":
+      response = "Available commands: help, info, scan, exit";
+      break;
+    case "info":
+      response = "RAT Tool v1.0 — Dark Web Access Granted.";
+      break;
+    case "scan":
+      response = "Scanning target... Complete!";
+      break;
+    case "exit":
+      response = "Session terminated.";
+      break;
+    default:
+      response = "Unknown command. Type 'help' for available commands.";
+  }
+
+  outputDiv.innerHTML += `<p>> ${input}</p><p>${response}</p>`;
+  document.getElementById("command-input").value = "";
 }

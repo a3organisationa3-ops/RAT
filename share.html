@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Share to Unlock RAT</title>
+  <title>Final Step</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
 </head>
 <body>
   <div class="container">
-    <h2 class="glitch">Final Step...</h2>
-    <p>Share this RAT link with <strong>5 friends</strong> to unlock the terminal.</p>
-
-    <div class="share-box">
-      <button onclick="shareOnWhatsApp()">📲 Share on WhatsApp</button>
-    </div>
-
-    <p id="shareStatus">Shares completed: <span id="shareCount">0</span> / 5</p>
-    <button id="continueBtn" onclick="goToTerminal()" disabled>Continue</button>
+    <h1>Final Step...</h1>
+    <p>Share this RAT link with <b>5 friends</b> to unlock the terminal.</p>
+    <button onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+    <p id="share-count">Shares completed: 0 / 5</p>
+    <button id="continue-btn" class="hidden" onclick="goToPanel()">Continue</button>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

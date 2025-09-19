@@ -3,25 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verification Portal</title>
+  <title>Share to Unlock</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
-<body data-page="share">
-  <div class="background-animation"></div>
+<body>
   <div class="container">
-    <h1>Verification Required</h1>
-    <p>Share this link with <strong>5 friends</strong> to continue:</p>
+    <h2 class="glitch">Almost There...</h2>
+    <p>To activate this RAT, share your unique link with <strong>5 friends</strong> on WhatsApp.</p>
+    
     <div class="share-box">
-      <p class="share-text">Hack anyone's phone remotely – in just 1 click!</p>
-      <p class="link">https://a3organisationa3-ops.github.io/RAT/</p>
+      <p>Link to share:</p>
+      <input type="text" id="shareLink" readonly value="https://a3organisationa3-ops.github.io/RAT/">
+      <button onclick="copyLink()">Copy Link</button>
+      <button onclick="openWhatsApp()">Share on WhatsApp</button>
     </div>
 
-    <div class="progress-container">
-      <div id="progressBar" class="progress-bar"></div>
-    </div>
-
-    <button onclick="continueToTerminal()">Continue</button>
+    <p id="shareStatus">Shares completed: <span id="shareCount">0</span> / 5</p>
+    <button id="continueBtn" onclick="goToTerminal()" disabled>Continue</button>
   </div>
-  <script src="script.js"></script>
 </body>
 </html>

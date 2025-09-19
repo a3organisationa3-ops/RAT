@@ -1,94 +1,68 @@
-const SECRET_KEY = "UNIVERSAL_HACKER_RAT_2025";
+// Universal Access Key
+const MASTER_KEY = "UNIVERSAL_HACKER_RAT_2025";
 
-// ===== INDEX PAGE =====
-function checkKey() {
-  const inputKey = document.getElementById("accessKey").value.trim();
-  const errorMsg = document.getElementById("errorMsg");
-
-  if (inputKey === SECRET_KEY) {
-    localStorage.setItem("rat_access", "granted");
+// Validate Key
+function validateKey() {
+  const keyInput = document.getElementById("accessKey").value;
+  if (keyInput === MASTER_KEY) {
     window.location.href = "share.html";
   } else {
-    errorMsg.textContent = "❌ Invalid Key. Access Denied!";
+    document.getElementById("errorMsg").innerText = "❌ Wrong Access Key!";
   }
 }
 
-// ===== SHARE PAGE =====
-function continueToTerminal() {
-  if (localStorage.getItem("rat_access") !== "granted") {
-    alert("Access denied! Please enter the correct key first.");
-    window.location.href = "index.html";
-    return;
+// Share Logic
+let shareCount = 0;
+
+function copyLink() {
+  const link = document.getElementById("shareLink");
+  link.select();
+  document.execCommand("copy");
+  alert("Link copied to clipboard!");
+}
+
+function openWhatsApp() {
+  shareCount++;
+  document.getElementById("shareCount").innerText = shareCount;
+  window.open(`https://wa.me/?text=Hack anyone's phone remotely in just 1 click! ${document.getElementById("shareLink").value}`, '_blank');
+
+  if (shareCount >= 5) {
+    document.getElementById("continueBtn").disabled = false;
+    document.getElementById("shareStatus").innerText = "All shares completed!";
   }
+}
 
-  const progressBar = document.getElementById("progressBar");
-  let progress = 0;
+function goToTerminal() {
+  window.location.href = "terminal.html";
+}
 
-  const interval = setInterval(() => {
-    progress += 10;
-    progressBar.style.width = progress + "%";
+// Terminal Commands
+function runCommand(event) {
+  if (event.key === "Enter") {
+    const input = document.getElementById("terminalInput").value.toLowerCase();
+    const output = document.getElementById("terminalOutput");
 
-    if (progress >= 100) {
-      clearInterval(interval);
-      setTimeout(() => {
-        window.location.href = "terminal.html";
-      }, 500);
+    switch (input) {
+      case "help":
+        output.innerText += "\nCommands:\nRAT D - Device info\nTT - File Access\nSCAN - Network Scan\nEXIT - Close RAT\n";
+        break;
+      case "rat d":
+        output.innerText += `\n[DEVICE] Android Version: 11.0\n[IP] 192.168.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}\n`;
+        break;
+      case "tt":
+        output.innerText += "\nAccessing files...\n- contacts.db\n- messages.db\n- images.zip\n- calllogs.txt\n";
+        break;
+      case "scan":
+        output.innerText += "\nScanning target network...\nFound 5 open ports.\n";
+        break;
+      case "exit":
+        output.innerText += "\nClosing RAT session...\n";
+        break;
+      default:
+        output.innerText += `\nUnknown command: ${input}\nType 'help' for list of commands.\n`;
     }
-  }, 600); // Slow for realism
-}
 
-// ===== TERMINAL PAGE =====
-const terminalCommands = [
-  "[+] Initializing secure RAT tunnel...",
-  "[+] Loading encrypted modules...",
-  "[+] Injecting payload into target device...",
-  "[+] Gaining root privileges...",
-  "[+] Connection established to victim device...",
-  "[+] Fetching device information...",
-  "     Device Model: Android_X",
-  "     OS Version: Android 13.1",
-  "     IP Address: 192.168.1.35",
-  "[+] Deploying remote access trojan...",
-  "[✔] RAT Deployment Successful!",
-  "[!] System Integrity Breach Detected...",
-  "[!!] Critical failure... Initiating self-destruct protocol...",
-];
-
-let currentLine = 0;
-
-function runTerminalSimulation() {
-  if (localStorage.getItem("rat_access") !== "granted") {
-    alert("Access denied! Start from beginning.");
-    window.location.href = "index.html";
-    return;
+    output.scrollTop = output.scrollHeight;
+    document.getElementById("terminalInput").value = "";
   }
-
-  const terminalOutput = document.getElementById("terminalOutput");
-
-  const interval = setInterval(() => {
-    if (currentLine < terminalCommands.length) {
-      const line = document.createElement("div");
-      line.textContent = terminalCommands[currentLine];
-      terminalOutput.appendChild(line);
-      terminalOutput.scrollTop = terminalOutput.scrollHeight;
-      currentLine++;
-    } else {
-      clearInterval(interval);
-      setTimeout(() => {
-        document.body.innerHTML = `
-          <div style="display:flex;align-items:center;justify-content:center;height:100vh;background:black;color:red;font-size:2rem;text-align:center;">
-            <b>SYSTEM CRASHED</b><br><br>Restart Required!
-          </div>
-        `;
-      }, 1500);
-    }
-  }, 900); // Slow & realistic typing
 }
-
-// Auto-run based on page
-document.addEventListener("DOMContentLoaded", () => {
-  const page = document.body.getAttribute("data-page");
-  if (page === "terminal") {
-    runTerminalSimulation();
-  }
-});

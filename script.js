@@ -1,4 +1,4 @@
-// Master Key
+// Master Access Key
 const MASTER_KEY = "UNIVERSAL_HACKER_RAT_2025";
 
 // Validate Access Key
@@ -16,21 +16,15 @@ function validateKey() {
 // Share Page Logic
 let shareCount = 0;
 
-function copyLink() {
-  const linkField = document.getElementById("shareLink");
-  linkField.select();
-  navigator.clipboard.writeText(linkField.value);
-  alert("Link copied to clipboard!");
-}
-
 function shareOnWhatsApp() {
   shareCount++;
   document.getElementById("shareCount").innerText = shareCount;
 
-  const link = document.getElementById("shareLink").value;
-  const message = `Hack anyone's phone remotely in just 1 click! ${link}`;
+  const link = "https://a3organisationa3-ops.github.io/RAT/";
+  const message = `🔥 Dark RAT Tool 🔥\nHack anyone's phone remotely!\nGet it now:\n${link}`;
 
-  window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+  // Open WhatsApp with message
+  window.location.href = `https://wa.me/?text=${encodeURIComponent(message)}`;
 
   if (shareCount >= 5) {
     document.getElementById("continueBtn").disabled = false;
@@ -50,27 +44,55 @@ function runCommand(event) {
 
     switch (input) {
       case "help":
-        output.innerText += "\nAvailable Commands:\nRAT D - Device Info\nTT - File Access\nSCAN - Network Scan\nINFO - RAT Details\nEXIT - Close RAT\n";
+        output.innerText += `
+Available Commands:
+- rat-d      : Device Info
+- tt         : File Access
+- netscan    : Network Scan
+- sys-info   : System Info
+- logout     : Close RAT
+        `;
         break;
 
-      case "rat d":
-        output.innerText += `\n[DEVICE] Android Version: 13.0\n[IP] 192.168.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}\n[IMEI] 3598${Math.floor(Math.random() * 100000000)}\n`;
+      case "rat-d":
+        output.innerText += `\n[DEVICE] Android 13.0
+[IP] 192.168.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}
+[IMEI] 3598${Math.floor(Math.random() * 100000000)}
+        `;
         break;
 
       case "tt":
-        output.innerText += "\nAccessing files...\n- contacts.db\n- messages.db\n- gallery.zip\n- calllogs.txt\n\n";
+        output.innerText += `
+Accessing files...
+- contacts.db
+- messages.db
+- gallery.zip
+- calllogs.txt
+        `;
         break;
 
-      case "scan":
-        output.innerText += "\nScanning target network...\nFound 8 open ports.\nRunning exploit on port 443...\nExploit success!\n";
+      case "netscan":
+        output.innerText += `
+Scanning target network...
+Found 8 open ports.
+Running exploit on port 443...
+Exploit success!
+        `;
         break;
 
-      case "info":
-        output.innerText += "\nDark RAT v3.5 | Developer: GhostOps\nStatus: ACTIVE\nLogs: Encrypted\n";
+      case "sys-info":
+        output.innerText += `
+System Info Dump:
+OS: Android
+CPU: ARMv8
+RAM: 6GB
+Storage: 128GB
+Status: Compromised
+        `;
         break;
 
-      case "exit":
-        output.innerText += "\nClosing RAT session...\n";
+      case "logout":
+        output.innerText += "\nClosing RAT session... Goodbye!\n";
         break;
 
       default:

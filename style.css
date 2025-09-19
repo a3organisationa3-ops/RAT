@@ -1,72 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
+/* css/style.css */
 body {
-  background: #000;
-  color: #00ffcc;
-  font-family: 'Share Tech Mono', monospace;
+  background-color: #000;
+  color: #00ff00;
+  font-family: monospace;
   text-align: center;
   padding: 20px;
 }
 
 .container {
-  max-width: 420px;
-  margin: auto;
-  background: rgba(15, 15, 15, 0.95);
-  padding: 30px;
-  border: 2px solid #00ffcc;
-  border-radius: 12px;
-  box-shadow: 0 0 25px #00ffcc;
+  margin-top: 100px;
 }
 
-h1 {
-  font-size: 28px;
-  text-shadow: 0 0 12px #00ffcc, 0 0 25px #00ffcc;
+.neon-text {
+  font-size: 2.5em;
+  text-shadow: 0 0 10px #0f0;
 }
 
-input {
-  width: 80%;
-  padding: 10px;
-  margin: 15px 0;
-  border: 2px solid #00ffcc;
-  background: #111;
-  color: #fff;
-  font-size: 18px;
-  text-align: center;
-  outline: none;
-  border-radius: 5px;
+.sub-text {
+  color: #0f0;
+  font-size: 1.2em;
+  margin-bottom: 30px;
 }
 
-button {
+.highlight {
+  color: #00ffff;
+  font-weight: bold;
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: #000;
+  font-size: 1.2em;
   padding: 12px 30px;
-  margin: 10px;
-  background: #00ffcc;
-  color: #000;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
   transition: 0.3s;
-  border-radius: 6px;
-  text-transform: uppercase;
 }
 
-button:hover {
-  background: #00ffaa;
+.btn-whatsapp:hover {
+  background-color: #1da851;
+}
+
+.count-text {
+  margin-top: 20px;
+}
+
+.btn-continue {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 1.2em;
+  background-color: #333;
+  color: #777;
+  border: none;
+  border-radius: 5px;
+  cursor: not-allowed;
+}
+
+.btn-continue.active {
+  background-color: #00ff00;
   color: #000;
-  box-shadow: 0 0 15px #00ffaa;
-}
-
-.error {
-  color: #ff0000;
-}
-
-.hidden {
-  display: none;
-}
-
-#command-output {
-  margin-top: 15px;
-  background: #111;
-  padding: 10px;
-  border: 1px solid #00ffcc;
-  text-align: left;
+  cursor: pointer;
 }

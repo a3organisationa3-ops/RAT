@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Universal RAT - Terminal</title>
+  <title>RAT Terminal</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
-<body data-page="terminal">
-  <div class="background-animation"></div>
-  <div class="container">
-    <h1 class="glitch" data-text="TERMINAL ACCESS">TERMINAL ACCESS</h1>
-    <div id="terminalOutput" class="terminal-output"></div>
+<body>
+  <div class="terminal">
+    <pre id="terminalOutput">Initializing RAT system...
+Type "help" to see available commands.
+----------------------------------------
+</pre>
+    <input type="text" id="terminalInput" placeholder="Enter command..." onkeypress="runCommand(event)">
   </div>
-  <script src="script.js"></script>
 </body>
 </html>

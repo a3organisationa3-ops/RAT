@@ -1,4 +1,4 @@
-// ===== Correct Key =====
+// ===== Configuration =====
 const correctKey = "DARKWEB123"; // Change this to your secret key
 let shareCount = 0;
 const requiredShares = 5;
@@ -17,16 +17,18 @@ function verifyKey() {
 
 // ===== Buy Key =====
 function buyKey() {
-  const phoneNumber = "919836942455"; // Your WhatsApp number
+  const phoneNumber = "919836942455"; // Replace with your WhatsApp number
   const message = encodeURIComponent("Hello, I want to buy a key for Dark Web RAT Tool.");
   window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
 }
 
 // ===== Share on WhatsApp =====
 function shareOnWhatsApp() {
-  const shareText = encodeURIComponent("🔥 Dark Web RAT TOOL 🔥\nGet this tool here: https://a3organisationa3-ops.github.io/RAT/");
-  
-  window.open(`whatsapp://send?text=${shareText}`, "_blank");
+  const shareText = encodeURIComponent(
+    "🔥 Dark Web RAT TOOL 🔥\nGet this tool here: https://a3organisationa3-ops.github.io/RAT/"
+  );
+
+  window.location.href = `whatsapp://send?text=${shareText}`;
 
   // Update share count
   shareCount++;
@@ -42,13 +44,13 @@ function goToPanel() {
   window.location.href = "panel.html";
 }
 
-// ===== Run Commands in Terminal =====
+// ===== Run Terminal Commands =====
 function runCommand() {
   const input = document.getElementById("command-input").value.trim();
   const outputDiv = document.getElementById("command-output");
 
   let response = "";
-  switch(input.toLowerCase()) {
+  switch (input.toLowerCase()) {
     case "help":
       response = "Available commands: help, info, scan, exit";
       break;

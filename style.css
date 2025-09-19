@@ -1,6 +1,6 @@
-/* Global dark theme */
+/* General dark web theme */
 body {
-  background-color: #000;
+  background: #000;
   color: #00ffcc;
   font-family: 'Courier New', monospace;
   margin: 0;
@@ -13,8 +13,8 @@ body {
 }
 
 .glitch {
-  font-size: 2rem;
-  text-shadow: 0 0 10px #0f0;
+  font-size: 2.2rem;
+  text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
   animation: glitch 1.5s infinite;
 }
 
@@ -29,17 +29,24 @@ input[type="password"], input[type="text"] {
   border: 1px solid #00ffcc;
   color: #0f0;
   padding: 10px;
-  width: 220px;
+  width: 250px;
   margin-top: 15px;
+  text-align: center;
 }
 
 button {
   background: #00ffcc;
+  color: #000;
+  font-weight: bold;
   border: none;
   padding: 10px 20px;
   margin-top: 15px;
   cursor: pointer;
-  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #0f0;
 }
 
 button:disabled {
@@ -55,8 +62,8 @@ button:disabled {
 .terminal {
   padding: 20px;
   height: 90vh;
-  overflow-y: auto;
   background: #111;
+  overflow-y: auto;
 }
 
 #terminalInput {

